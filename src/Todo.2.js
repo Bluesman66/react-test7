@@ -1,10 +1,10 @@
 import React from 'react'
 import { mount, shallow } from 'enzyme'
-import Todo from './Todo'
+import TodoApp from './TodoApp'
 import TodoForm from './TodoForm'
 
 describe('todo testing with enzyme', () => {
-	const component = shallow(<Todo/>)
+	const component = shallow(<TodoApp/>)
 	const h6Tag = component.find('h6')
 
 	test('should be h6 tag on init app', () => {
@@ -31,7 +31,7 @@ describe('todo testing with enzyme', () => {
 })
 
 describe('full render testing', () => {
-	const component = mount(<Todo/>)
+	const component = mount(<TodoApp/>)
 
 	test('todo form must have addTodo prop', () => {
 		expect(component.childAt(0).props().addTodo).toBeDefined()
@@ -48,7 +48,7 @@ describe('full render testing', () => {
 })
 
 test('test add todo with interactive', () => {
-	const component = mount(<Todo/>)
+	const component = mount(<TodoApp/>)
 
 	const addTodo = (val = '') => {
 		component.find('input').get(0).value = val

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Todo from './Todo'
+import TodoApp from './TodoApp'
 
 export default class App extends Component {
   render() {
-    return <Todo/>
+    return <TodoApp/>
   }
 }
