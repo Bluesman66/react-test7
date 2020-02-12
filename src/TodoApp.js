@@ -48,18 +48,19 @@ export default class TodoApp extends Component {
 			<TodoForm addTodo={this.addTodo.bind(this)} />
 
 			<div style={{ marginTop: 50 }}>
-				{todos.length ? <div>
-					<h3>TODOS:</h3>
-					<ul>
-						{todos.map(todo => {
-							return <TodoItem
-								key={todo.id} {...todo}
-								removeTodo={this.removeTodo.bind(this)}
-								switchComplete={this.switchComplete.bind(this)}
-							/>
-						})}
-					</ul>
-				</div> : <h6>You don't have todos yet...</h6>}
+				{todos.length ?
+					<div>
+						<h3>TODOS:</h3>
+						<ul>
+							{todos.map(todo => {
+								return <TodoItem
+									key={todo.id} {...todo}
+									removeTodo={this.removeTodo.bind(this)}
+									switchComplete={this.switchComplete.bind(this)}
+								/>
+							})}
+						</ul>
+					</div> : <h6>You don't have todos yet...</h6>}
 			</div>
 		</div>
 	}
