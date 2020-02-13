@@ -38,16 +38,15 @@ describe('todo testing with enzyme', () => {
 			expect(component.childAt(0).props().children[0].props.addTodo).toBeDefined();
 		});
 
-		test('addTodo method call re-render', () => {
+		test('addTodo method calls re-render', () => {
 			component.instance().addTodo('todo1');
 			component.instance().addTodo('todo2');
 			component.instance().addTodo('todo3');
 
-			expect(component.childAt(1).children('div'));
-
-			console.log(component.childAt(1).children('div').find('ul'));
-			
-			//expect(component.childAt(1).children('div').find('ul').get(0).childElementCount).toEqual(3);
+			expect(component.text().indexOf('todo1')).toBeGreaterThan(-1);
+			expect(component.text().indexOf('todo2')).toBeGreaterThan(-1);
+			expect(component.text().indexOf('todo3')).toBeGreaterThan(-1);
+			expect(component.text().indexOf("You don't have todos yet...")).toBe(-1);
 		});
 	})
 })
